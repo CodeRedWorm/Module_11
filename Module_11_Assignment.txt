@@ -1,0 +1,24 @@
+tukey_multiple <- function(x)
+{
+    outliers <- array(TRUE,dim=dim(x))
+    for (j in 1:ncol(x))
+    {
+	outliers[,j] <- outliers[,j] && tukey.outlier(x[,j])
+    }
+
+    outlier.vec <- vector(length=nrow(x))
+    for (i in 1:nrow(x))
+    {
+	outlier.vec[i] <- all(outliers[i,])
+    }
+
+    return(outlier.vec)
+}
+
+- Typed out and ran the provided code but did not receive any errors.
+- Checked the code multiple times to ensure that no mistakes were made, but everything was entered correctly.
+- Can't provide data to test as I do not know what the function tukey.outlier() is supposed to do exactly. It has to obviously do with finding outliers in the dataset, but I can't be sure what its output will be.
+- Maybe just because RStudio does not return an error does not mean that there isn't a bug in the code. If there is one then I am currently unable to find it or am not knowledgeable to understand what is going wrong with the code.
+
+Blog: https://usflearn.instructure.com/eportfolios/36860?verifier=jgwQW3mSXkrWNSIDOTasd4fxTaaED6Hnb2her4v7
+GitHub: https://github.com/CodeRedWorm/Module_11.git
